@@ -68,7 +68,8 @@ public class UserController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{username}")
                 .buildAndExpand(newUsername).toUri();
 
-        return ResponseEntity.created(location).build();
+        ResponseEntity.created(location).build();
+        return ResponseEntity.ok().body(dto);
     }
 
     @PutMapping(value = "/{username}")
