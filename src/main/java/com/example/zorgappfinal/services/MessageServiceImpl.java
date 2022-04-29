@@ -40,6 +40,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public MessageDto getMessageById(Long id) {
         Message message = messageRepository.getById(id);
+
         MessageDto messageDto = transferToDto(message);
         return messageDto;
     }
