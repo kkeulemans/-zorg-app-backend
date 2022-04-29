@@ -61,7 +61,7 @@ public class UserController {
 
     @PostMapping(value = "")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto dto) {
-        ;
+
 
         String newUsername = userService.createUser(dto);
 
