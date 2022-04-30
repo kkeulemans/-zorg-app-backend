@@ -9,6 +9,5 @@ public interface AppointmentService {
     public List<AppointmentDto> getAllAppointments();
     public AppointmentDto getAppointmentById(Long id);
     AppointmentDto addAppointment (AppointmentDto appointmentDto);
-    void deleteAppointment(Long id);
     void updateAppointment(Long id, AppointmentDto appointment);
 }

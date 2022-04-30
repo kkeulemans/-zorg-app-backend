@@ -37,10 +37,6 @@ public class AppointmentController {
         return appToBeAdded;
     }
 
-    @DeleteMapping("/appointments/{id}")
-    public void deleteAppointment(@PathVariable("id") Long id) {
-        appointmentService.deleteAppointment(id);
-    }
 
     @PutMapping("/appointments/{id}")
     public AppointmentDto updateAppointment(@PathVariable("id") Long id, @RequestBody AppointmentDto dto) {

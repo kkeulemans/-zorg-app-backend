@@ -10,12 +10,12 @@ public class AccountMessage {
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("accountId")
     @JoinColumn(name = "account_id")
-    private Account account;
+     Account account;
 
     @ManyToOne
     @MapsId("messageId")
     @JoinColumn(name = "message_id")
-    private Message message;
+     Message message;
 
 
     public MessageKey getId() {
