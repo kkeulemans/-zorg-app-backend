@@ -48,10 +48,6 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDto;
     }
 
-    @Override
-    public void deleteAppointment(Long id) {
-        appointmentRepository.deleteById(id);
-    }
 
     @Override
     public void updateAppointment(Long id, AppointmentDto appointment) {

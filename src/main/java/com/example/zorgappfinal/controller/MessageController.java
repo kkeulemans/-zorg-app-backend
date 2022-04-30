@@ -2,7 +2,6 @@ package com.example.zorgappfinal.controller;
 
 import com.example.zorgappfinal.dto.ImageDto;
 import com.example.zorgappfinal.dto.MessageDto;
-import com.example.zorgappfinal.models.Image;
 import com.example.zorgappfinal.models.Message;
 import com.example.zorgappfinal.repositories.ImageRepository;
 import com.example.zorgappfinal.repositories.MessageRepository;
@@ -48,10 +47,6 @@ public class MessageController {
         return messageToBeAdded;
     }
 
-    @DeleteMapping("/messages/{id}")
-    public void deleteMessage(@PathVariable("id") Long id) {
-        messageService.deleteMessage(id);
-    }
 
     @PutMapping("/messages/{id}")
     public MessageDto updateMessage(@PathVariable("id") Long id, @RequestBody MessageDto dto){

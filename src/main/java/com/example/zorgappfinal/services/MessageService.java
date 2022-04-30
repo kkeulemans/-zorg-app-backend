@@ -11,7 +11,6 @@ public interface MessageService {
     List<MessageDto> getAllMessages();
     MessageDto getMessageById(Long id);
     MessageDto addMessage(MessageDto messageDto);
-    void deleteMessage(Long id);
     void updateMessage(Long id, MessageDto message);
     void assignToAccount(Long id, Long accountId);
     void addAttachment(Long id, Long attachmentId);
