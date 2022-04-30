@@ -4,7 +4,7 @@ package com.example.zorgappfinal.dto;
 public class ImageDto {
 
     Long id;
-    public byte[] content;
+    public String content;
     private MessageDto message;
 
     public Long getId() {
@@ -15,10 +15,10 @@ public class ImageDto {
         this.id = id;
     }
 
-    public byte[] getContent(){
+    public String getContent(){
         return content;
     }
-    public void setContent(byte[] content){
+    public void setContent(String content){
         this.content = content;
     }
     public MessageDto getMessage(){

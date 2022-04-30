@@ -11,9 +11,8 @@ public class Image {
     @GeneratedValue
     Long id;
 
-    @Lob
-    @Type(type = "org.hibernate.type.ImageType")
-    public byte[] content;
+    @Column(name ="content", length = 3355228)
+    public String content;
 
     @OneToOne
     @JoinColumn(name = "message_id")
@@ -27,10 +26,10 @@ public class Image {
         this.id = id;
     }
 
-    public byte[] getContent(){
+    public String getContent(){
         return content;
     }
-    public void setContent(byte[] content){
+    public void setContent(String content){
         this.content = content;
     }
 

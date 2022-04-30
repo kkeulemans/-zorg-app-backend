@@ -6,6 +6,7 @@ import com.example.zorgappfinal.repositories.ImageRepository;
 import com.example.zorgappfinal.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,17 +20,14 @@ public class ImageController {
     MessageRepository messageRepository;
 
     @PostMapping("/messages/{id}/attachment")
-    public String upload(@RequestBody MultipartFile file, @PathVariable Long id) {
+    public String upload(@RequestBody String file, @PathVariable Long id) {
         Image img = new Image();
         Message message = messageRepository.findById(id).get();
-        try {
-            img.content = file.getBytes();
+
+            img.content = file;
             img.addToMessage(message);
             message.setAttachment(img);
-        }
-        catch (IOException iex) {
-            return "Error while uploading image...";
-        }
+
 
         imgRepos.save(img);
         messageRepository.save(message);
@@ -37,9 +35,10 @@ public class ImageController {
     }
 
     @GetMapping(value = "/images/{id}", produces = MediaType.IMAGE_PNG_VALUE)
-    public @ResponseBody byte[] download(@PathVariable Long id) {
+    public @ResponseBody String download(@PathVariable Long id) {
         Image img = imgRepos.findById(id).get();
         return img.content;
+
     }
 
     @DeleteMapping("/messages/{id}/{attachmentId}")
