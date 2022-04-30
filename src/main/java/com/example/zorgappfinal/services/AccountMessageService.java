@@ -5,7 +5,7 @@ import com.example.zorgappfinal.models.MessageKey;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface AccountMessageService {
 
     List<MessageDto> getAllByAccountId(Long accountId);

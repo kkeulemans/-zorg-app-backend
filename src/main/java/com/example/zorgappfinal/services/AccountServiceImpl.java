@@ -60,9 +60,6 @@ public class AccountServiceImpl implements AccountService {
 
     }
 
-    public void deleteAccount(Long id) {
-        accountRepository.deleteById(id);
-    }
 
     public void updateAccount(Long id, AccountDto dto) {
         if (accountRepository.findById(id).isPresent()) {
