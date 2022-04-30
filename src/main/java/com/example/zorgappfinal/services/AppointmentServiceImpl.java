@@ -1,4 +1,5 @@
 package com.example.zorgappfinal.services;
+
 import com.example.zorgappfinal.exceptions.RecordNotFoundException;
 import com.example.zorgappfinal.dto.AppointmentDto;
 import com.example.zorgappfinal.models.Appointment;
@@ -43,6 +44,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public AppointmentDto addAppointment(AppointmentDto appointmentDto) {
         Appointment appointmentToBeAdded = transferToAppointment(appointmentDto);
         appointmentRepository.save(appointmentToBeAdded);
+        appointmentDto.setId(appointmentToBeAdded.getId());
         return appointmentDto;
     }
 
