@@ -39,16 +39,6 @@ public class AccountController {
         return dto;
     }
 
-    @PutMapping("{id}/message/{messageId}")
-    public void addMessage(@PathVariable("id") Long id, @PathVariable("messageId") Long messageId){
-        accountService.addMessage(id,messageId);
-    }
-
-    @PutMapping("{id}/appointment/{appointmentId}")
-    public void addAppointment(@PathVariable("id") Long id, @PathVariable("appointmentId") Long appointmentId){
-        accountService.addAppointment(id,appointmentId);
-    }
-
     @PutMapping("{id}/{username}")
     public void assignToUser (@PathVariable("id") Long id, @PathVariable("username") String username){
         accountService.assignUser(username,id);
