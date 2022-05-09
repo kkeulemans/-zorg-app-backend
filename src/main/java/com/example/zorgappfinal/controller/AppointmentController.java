@@ -1,7 +1,6 @@
 package com.example.zorgappfinal.controller;
 
 import com.example.zorgappfinal.dto.AppointmentDto;
-import com.example.zorgappfinal.services.AccountAppointmentService;
 import com.example.zorgappfinal.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
-    @Autowired
+   // @Autowired
     AccountAppointmentService accountAppointmentService;
 
 
@@ -44,7 +43,7 @@ public class AppointmentController {
         return dto;
     }
 
-    @GetMapping("/{accountId}/appointments/")
+    // @GetMapping("/{accountId}/appointments/")
     public ResponseEntity<List<AppointmentDto>> getAppointmentsByAccountId(@PathVariable("accountId") Long accountId){
 
         return ResponseEntity.ok().body(accountAppointmentService.getAllByAccountId(accountId));

@@ -3,10 +3,8 @@ package com.example.zorgappfinal.services;
 import com.example.zorgappfinal.exceptions.RecordNotFoundException;
 import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.models.Account;
-import com.example.zorgappfinal.models.AccountMessage;
 import com.example.zorgappfinal.models.Image;
 import com.example.zorgappfinal.models.Message;
-import com.example.zorgappfinal.repositories.AccountMessageRepository;
 import com.example.zorgappfinal.repositories.AccountRepository;
 import com.example.zorgappfinal.repositories.ImageRepository;
 import com.example.zorgappfinal.repositories.MessageRepository;
@@ -27,8 +25,6 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     AccountRepository accountRepository;
 
-    @Autowired
-    AccountMessageRepository accountMessageRepository;
     @Override
     public List<MessageDto> getAllMessages() {
         List<Message> messageList = messageRepository.findAll();

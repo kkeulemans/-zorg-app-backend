@@ -1,8 +1,11 @@
 package com.example.zorgappfinal.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Table(name="appointments")
@@ -14,6 +17,9 @@ public class Appointment {
     @Column(name = "time")
     private LocalTime time;
 
+   @ManyToMany
+   @JsonIgnore
+   List<Account> accounts;
 
     public Long getId(){
         return id;
@@ -36,6 +42,14 @@ public class Appointment {
 
     public void setTime(LocalTime time) {
         this.time = time;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void addAccount (Account account) {
+        this.accounts.add(account);
     }
 
 
