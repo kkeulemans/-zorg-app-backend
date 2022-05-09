@@ -1,8 +1,12 @@
 package com.example.zorgappfinal.services;
 
+import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.exceptions.RecordNotFoundException;
 import com.example.zorgappfinal.dto.AppointmentDto;
+import com.example.zorgappfinal.models.Account;
 import com.example.zorgappfinal.models.Appointment;
+import com.example.zorgappfinal.models.Message;
+import com.example.zorgappfinal.repositories.AccountRepository;
 import com.example.zorgappfinal.repositories.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +20,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
+
+    @Autowired
+    AccountRepository accountRepository;
 
     @Override
     public List<AppointmentDto> getAllAppointments() {
@@ -38,6 +45,18 @@ public class AppointmentServiceImpl implements AppointmentService {
         } else {
             throw new RecordNotFoundException("No remotecontroller found");
         }
+    }
+
+    public List<AppointmentDto> getAppointmentsByAccountId(Long id){
+        Account account = accountRepository.getById(id);
+        List<Appointment> appointments = account.getAppointments();
+        List<AppointmentDto> dtos = new ArrayList<>();
+
+        for (Appointment appointment : appointments){
+            AppointmentDto dto = transferToDto(appointment);
+            dtos.add(dto);
+        }
+        return dtos;
     }
 
     @Override

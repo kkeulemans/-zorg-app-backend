@@ -1,6 +1,7 @@
 package com.example.zorgappfinal.services;
 
 import com.example.zorgappfinal.dto.AccountDto;
+import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.models.Account;
 import org.springframework.stereotype.Service;
 

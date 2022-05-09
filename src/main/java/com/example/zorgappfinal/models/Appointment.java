@@ -17,7 +17,7 @@ public class Appointment {
     @Column(name = "time")
     private LocalTime time;
 
-   @ManyToMany
+   @ManyToMany(mappedBy = "appointments")
    @JsonIgnore
    List<Account> accounts;
 

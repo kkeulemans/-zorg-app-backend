@@ -122,18 +122,6 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
-    public void assignAccount (String username, Long accountId ){
-        Optional<User> optionalUser = userRepository.findById(username);
-        Optional<Account> optionalAccount = accountRepository.findById(accountId);
-        if (optionalAccount.isPresent() && optionalUser.isPresent()){
-            var user = optionalUser.get();
-            var account = optionalAccount.get();
-            user.setAccount(account);
-            account.setUser(user);
 
-            accountRepository.save(account);
-            userRepository.save(user);
-        }
-    }
 
 }

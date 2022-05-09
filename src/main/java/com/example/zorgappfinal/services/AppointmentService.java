@@ -8,6 +8,7 @@ import java.util.List;
 public interface AppointmentService {
     public List<AppointmentDto> getAllAppointments();
     public AppointmentDto getAppointmentById(Long id);
+    List<AppointmentDto> getAppointmentsByAccountId(Long id);
     AppointmentDto addAppointment (AppointmentDto appointmentDto);
     void updateAppointment(Long id, AppointmentDto appointment);
 }

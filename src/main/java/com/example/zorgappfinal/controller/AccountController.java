@@ -1,6 +1,7 @@
 package com.example.zorgappfinal.controller;
 
 import com.example.zorgappfinal.dto.AccountDto;
+import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.services.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,9 @@ public class AccountController {
         AccountDto dto = accountService.getAccountById(id);
         return dto;
     }
+
+
+    @GetMapping("/{id}/appointments")
     @PostMapping("/new")
     public ResponseEntity<AccountDto> createAccount(@RequestBody AccountDto dto){
         accountService.addAccount(dto);
@@ -42,5 +46,15 @@ public class AccountController {
     @PutMapping("{id}/{username}")
     public void assignToUser (@PathVariable("id") Long id, @PathVariable("username") String username){
         accountService.assignUser(username,id);
+    }
+
+    @PutMapping("{id}/message/{messageId}")
+    public void assignMessage (@PathVariable("id") Long id, @PathVariable("messageId") Long messageId ){
+        accountService.addMessage(id,messageId);
+    }
+
+    @PutMapping("{id}/appointment/{appointmentId}")
+    public void assignAppointment (@PathVariable("id") Long id, @PathVariable("appointmentId") Long appointmentId){
+        accountService.addAppointment(id, appointmentId);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.zorgappfinal.services;
 
 import com.example.zorgappfinal.dto.AccountDto;
+import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.exceptions.RecordNotFoundException;
 import com.example.zorgappfinal.models.Account;
 import com.example.zorgappfinal.models.Appointment;
@@ -51,6 +52,7 @@ public class AccountServiceImpl implements AccountService {
             throw new RecordNotFoundException("No client found");
         }
     }
+
 
     public AccountDto addAccount(AccountDto dto) {
         Account accountToBeAdded = transferToAccount(dto);
@@ -129,4 +131,6 @@ public class AccountServiceImpl implements AccountService {
         }
 
     }
+
+
 }

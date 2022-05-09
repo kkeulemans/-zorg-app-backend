@@ -35,11 +35,6 @@ public class UserController {
         return ResponseEntity.ok().body(userDtos);
     }
 
-    @PutMapping("/{id}/account/{accountId}")
-    public void addAccount(@PathVariable("id") String id, @PathVariable("accountId") Long accountId) {
-        userService.assignAccount(id, accountId);
-    }
-
 
     @GetMapping("/{id}/account")
     public AccountDto getAccount(@PathVariable("id") String id) {

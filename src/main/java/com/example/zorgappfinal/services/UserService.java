@@ -35,7 +35,7 @@ public interface UserService {
 
     void removeAuthority(String username, String authority);
 
-    void assignAccount(String username, Long accountId);
+
 
 
 

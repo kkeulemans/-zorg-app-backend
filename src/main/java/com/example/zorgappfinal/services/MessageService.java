@@ -10,6 +10,7 @@ public interface MessageService {
 
     List<MessageDto> getAllMessages();
     MessageDto getMessageById(Long id);
+    List<MessageDto> getMessagesByAccountId(Long id);
     MessageDto addMessage(MessageDto messageDto);
     void updateMessage(Long id, MessageDto message);
     void assignToAccount(Long id, Long accountId);

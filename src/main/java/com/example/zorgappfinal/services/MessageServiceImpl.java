@@ -45,7 +45,17 @@ public class MessageServiceImpl implements MessageService {
         MessageDto messageDto = transferToDto(message);
         return messageDto;
     }
+    public List<MessageDto> getMessagesByAccountId(Long id){
+        Account account = accountRepository.getById(id);
+        List<Message> messages = account.getMessages();
+        List<MessageDto> dtos = new ArrayList<>();
 
+        for (Message message : messages){
+            MessageDto dto = transferToDto(message);
+            dtos.add(dto);
+        }
+        return dtos;
+    }
     @Override
     public MessageDto addMessage(MessageDto messageDto) {
         Message messageToBeAdded = transferToMessage(messageDto);
