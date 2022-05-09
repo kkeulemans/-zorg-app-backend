@@ -5,16 +5,16 @@ import com.example.zorgappfinal.exceptions.RecordNotFoundException;
 import com.example.zorgappfinal.models.*;
 import com.example.zorgappfinal.repositories.AccountRepository;
 import com.example.zorgappfinal.repositories.AppointmentRepository;
-import com.example.zorgappfinal.repositories.AccountAppointmentRepository;
+//import com.example.zorgappfinal.repositories.AccountAppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-@Service
-public class AccountAppointmentServiceImpl implements AccountAppointmentService {
-    @Autowired
-    AccountAppointmentRepository accountAppointmentRepository;
+//@Service
+public class AccountAppointmentServiceImpl  {
+   // @Autowired
+    ///AccountAppointmentRepository accountAppointmentRepository;
 
     @Autowired
     AccountRepository accountRepository;
@@ -22,22 +22,22 @@ public class AccountAppointmentServiceImpl implements AccountAppointmentService 
     @Autowired
     AppointmentRepository appointmentRepository;
 
-    public List<AppointmentDto> getAllByAccountId(Long accountId){
+   // public List<AppointmentDto> getAllByAccountId(Long accountId){
         List<AppointmentDto> dtos = new ArrayList<>();
-        List<AccountAppointment> accountAppointments = accountAppointmentRepository.findAllByAccountId(accountId);
-        for (AccountAppointment accountAppointment : accountAppointments){
-            Appointment appointment = accountAppointment.getAppointment();
+      //  List<AccountAppointment> accountAppointments = accountAppointmentRepository.findAllByAccountId(accountId);
+      //  for (AccountAppointment accountAppointment : accountAppointments){
+         //   Appointment appointment = accountAppointment.getAppointment();
             AppointmentDto dto = new AppointmentDto();
 
-            dto.setId(appointment.getId());
-            dto.setDate(appointment.getDate());
-            dto.setTime(appointment.getTime());
+         //   dto.setId(appointment.getId());
+          //  dto.setDate(appointment.getDate());
+         //   dto.setTime(appointment.getTime());
+//
+         //   dtos.add(dto);
+     //   }
 
-            dtos.add(dto);
-        }
-
-        return dtos;
-    }
+      //  return dtos;
+   // }
     public AppointmentKey addUserMessage (Long appointmentId, Long accountId){
         AccountAppointment accountAppointment = new AccountAppointment();
 
@@ -49,7 +49,7 @@ public class AccountAppointmentServiceImpl implements AccountAppointmentService 
         accountAppointment.setAccount(user);
         AppointmentKey id = new AppointmentKey(appointmentId, accountId);
         accountAppointment.setId(id);
-        accountAppointmentRepository.save(accountAppointment);
+       // accountAppointmentRepository.save(accountAppointment);
         return id;
     }
 }

@@ -27,16 +27,8 @@ public class Account {
     LocalDate birthdate;
 
     @ManyToMany
-    @JoinTable(
-            name = "message_account",
-            joinColumns = @JoinColumn(name = "account_id"),
-            inverseJoinColumns = @JoinColumn(name = "message_id"))
     List<Message> messages;
     @ManyToMany
-    @JoinTable(
-            name = "appointment_account",
-            joinColumns = @JoinColumn(name = "account_id"),
-            inverseJoinColumns = @JoinColumn(name = "appointment_id"))
     List<Appointment> appointments;
 
     public Long getId() {
@@ -74,6 +66,12 @@ public class Account {
     public User getUser(){ return user;}
     public void setUser(User user) { this.user = user;}
 
+    public List<Appointment> getAppointments(){
+        return appointments;
+    }
+    public List<Message> getMessages(){
+        return messages;
+    }
     public void addMessage (Message message){
         messages.add(message);
     }

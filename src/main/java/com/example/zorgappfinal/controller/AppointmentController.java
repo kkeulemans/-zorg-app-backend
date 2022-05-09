@@ -15,7 +15,7 @@ public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
-    @Autowired
+   // @Autowired
     AccountAppointmentService accountAppointmentService;
 
 
@@ -44,7 +44,7 @@ public class AppointmentController {
         return dto;
     }
 
-    @GetMapping("/{accountId}/appointments/")
+    // @GetMapping("/{accountId}/appointments/")
     public ResponseEntity<List<AppointmentDto>> getAppointmentsByAccountId(@PathVariable("accountId") Long accountId){
 
         return ResponseEntity.ok().body(accountAppointmentService.getAllByAccountId(accountId));

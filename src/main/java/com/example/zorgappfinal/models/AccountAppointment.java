@@ -2,20 +2,20 @@ package com.example.zorgappfinal.models;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class AccountAppointment {
 
-    @EmbeddedId
+   // @EmbeddedId
     AppointmentKey id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("accountId")
-    @JoinColumn(name = "account_id")
-    private Account account;
+   // @ManyToOne(fetch = FetchType.LAZY)
+   // @MapsId("accountId")
+   // @JoinColumn(name = "account_id")
+     Account account;
 
-    @ManyToOne
-    @MapsId("appointmentId")
-    @JoinColumn(name = "appointment_id")
+   // @ManyToOne
+    //@MapsId("appointmentId")
+   // @JoinColumn(name = "appointment_id")
     private Appointment appointment;
 
 
