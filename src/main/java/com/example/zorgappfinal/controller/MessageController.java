@@ -5,7 +5,6 @@ import com.example.zorgappfinal.dto.MessageDto;
 import com.example.zorgappfinal.models.Message;
 import com.example.zorgappfinal.repositories.ImageRepository;
 import com.example.zorgappfinal.repositories.MessageRepository;
-import com.example.zorgappfinal.services.AccountMessageService;
 import com.example.zorgappfinal.services.ImageService;
 import com.example.zorgappfinal.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

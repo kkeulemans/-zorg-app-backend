@@ -1,7 +1,6 @@
 package com.example.zorgappfinal.controller;
 
 import com.example.zorgappfinal.dto.AppointmentDto;
-import com.example.zorgappfinal.services.AccountAppointmentService;
 import com.example.zorgappfinal.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
